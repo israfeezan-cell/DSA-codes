@@ -1,0 +1,65 @@
+package datastructure;
+import java.util.Scanner;
+public class OneDArray {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int[] A = new int[20];
+        int n = 0;
+        int i = 0;
+        System.out.print("Enter number of elements: ");
+        n = sc.nextInt();
+
+        System.out.println("Enter array elements:");
+        while (i < n) {
+            A[i] = sc.nextInt();
+            i++;
+        }
+        System.out.println("Array elements:");
+        i = 0;
+        while (i < n) {
+            System.out.print(A[i] + " ");
+            i++;
+        }
+        System.out.print("\nEnter value to search: ");
+        int key = sc.nextInt();
+        i = 0;
+
+        while (i < n && A[i] != key) {
+            i++;
+        }
+
+        if (i < n)
+            System.out.println("Element found at index " + i);
+        else
+            System.out.println("Element not found");
+        System.out.print("Enter index to update: ");
+        int index = sc.nextInt();
+
+        if (index >= 0 && index < n) {
+            System.out.print("Enter new value: ");
+            A[index] = sc.nextInt();
+        }
+        System.out.print("Enter index to delete: ");
+        index = sc.nextInt();
+
+        if (index >= 0 && index < n) {
+            i = index;
+            while (i < n - 1) {
+                A[i] = A[i + 1];
+                i++;
+            }
+            n--;
+        }
+        System.out.println("Final array:");
+        i = 0;
+        while (i < n) {
+            System.out.print(A[i] + " ");
+            i++;
+        }
+
+        sc.close();
+    }
+}
+
+
